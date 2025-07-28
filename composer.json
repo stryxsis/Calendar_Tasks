@@ -1,0 +1,16 @@
+{
+    "name": "vladc/calendar_tasks",
+    "description": "Progetto Calendario e Task",
+    "autoload": {
+        "psr-4": {
+            "Vladc\\CalendarTasks\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Vlad Costin",
+            "email": "vladcostin58@gmail.com"
+        }
+    ],
+    "require": {}
+}
