@@ -4,3 +4,12 @@
 @theme {
   --font-inter: "Inter", sans-serif;
 }
+
+@layer utilities {
+  .shadow-number {
+    @apply shadow-[0_1px_2px_0px_rgba(0,0,0,0.05)];
+  }
+  .shadow-today {
+    @apply shadow-[0_4px_20px_rgba(59,130,246,0.4)];
+  }
+}
