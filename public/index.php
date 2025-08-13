@@ -43,9 +43,9 @@
     <!-- HTML Corpo del calendario -->
     <section class="border-1 border-slate-200 dark:border-slate-700 rounded-xl overflow-hidden shadow-sm">
       <!-- HTML contenitore del menu del calendario e del titolo -->
-      <div class="bg-gradient-to-r from-white to-slate-50 dark:from-neutral-950 dark:to-zinc-900 p-3 flex flex-col items-center">
-        <div class="w-fit min-[426px]:w-full min-[426px]:flex min-[426px]:justify-between">
-          <h3 class="text-xl tracking-tight font-semibold text-slate-800 dark:text-slate-200 flex items-center gap-2 mb-6">
+      <div class="bg-gradient-to-r from-white to-slate-50 dark:from-neutral-950 dark:to-zinc-900 p-3">
+        <div class="flex justify-between items-center">
+          <h3 class="text-xl tracking-tight font-semibold text-slate-800 dark:text-slate-200 flex items-center gap-2">
             <span>
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-calendar-range-icon lucide-calendar-range">
                 <rect width="18" height="18" x="3" y="4" rx="2" />
@@ -61,8 +61,8 @@
           </h3>
           <!-- HTML del menu del calendario -->
           <div class="flex justify-center h-10">
-            <div class="text-xs flex p-1 bg-slate-100 dark:bg-[#202326] rounded-xl font-medium gap-1">
-              <button class="bg-blue-600 px-3 py-2 text-white rounded-lg flex gap-1.5">
+            <div id="buttonsForView" class="text-xs flex p-1 bg-slate-100 dark:bg-[#202326] rounded-xl font-medium gap-1">
+              <button id="viewMonth" class="bg-blue-600 px-3 py-2 text-white dark:text-white rounded-lg flex gap-1.5">
                 <span>
                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-grid3x3-icon lucide-grid-3x3">
                     <rect width="18" height="18" x="3" y="3" rx="2" />
@@ -72,9 +72,9 @@
                     <path d="M15 3v18" />
                   </svg>
                 </span>
-                <span class="max-[425px]:hidden">Month</span>
+                <span class="max-[426px]:hidden">Month</span>
               </button>
-              <button class="px-3 py-2 rounded-lg flex gap-1.5 dark:text-white">
+              <button id="viewWeek" class="px-3 py-2 rounded-lg flex gap-1.5 dark:text-white">
                 <span>
                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-list-icon lucide-list">
                     <path d="M3 12h.01" />
@@ -85,9 +85,9 @@
                     <path d="M8 6h13" />
                   </svg>
                 </span>
-                Week
+                <span class="max-[426px]:hidden">Week</span>
               </button>
-              <button class="px-3 py-2 rounded-lg flex gap-1.5 dark:text-white">
+              <button id="viewDay" class="px-3 py-2 rounded-lg flex gap-1.5 dark:text-white">
                 <span>
                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-calendar-icon lucide-calendar">
                     <path d="M8 2v4" />
@@ -96,11 +96,12 @@
                     <path d="M3 10h18" />
                   </svg>
                 </span>
-                Day
+                <span class="max-[426px]:hidden">Day</span>
               </button>
             </div>
           </div>
         </div>
+
         <!-- HTML Cambio mese con frecce -->
         <div class="w-full flex justify-between items-center mt-2">
           <button id="buttonPrev" class="px-3 py-2 border-slate-200 dark:border-slate-700 dark:bg-black dark:text-white border-1 rounded-xl shadow">
@@ -108,7 +109,7 @@
               <path d="m15 18-6-6 6-6" />
             </svg>
           </button>
-          <h2 id="monthYear"></h2>
+          <h2 class="dark:text-white" id="monthYear"></h2>
           <button id="buttonNext" class="px-3 py-2 dark:bg-black border-1 border-slate-200 dark:border-slate-700 dark:text-white rounded-xl shadow">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right-icon lucide-chevron-right">
               <path d="m9 18 6-6-6-6" />
@@ -117,11 +118,14 @@
         </div>
         <!-- TODO: Implementare la barra di ricerca dei eventi -->
       </div>
-      <!-- HTML Calendario, il calendario viene generato -->
-      <div id="calendar" class="grid grid-cols-7 text-sm font-semibold text-slate-600 dark:text-slate-400 bg-white p-2 gap-2 dark:bg-black border-b-1 border-slate-200">
+
+      <!-- Genera calendario in abse al bottone -->
+      <div id="calendar" class="">
 
       </div>
-      <div class="flex justify-center items-center bg-white dark:bg-black p-4">
+
+      <!-- Bottone aggiungi evento -->
+      <div class="flex justify-center items-center bg-white dark:bg-[#121212] p-4">
         <button class="flex justify-center items-center gap-2 w-full py-2.5 px-4 rounded-xl bg-linear-to-r from-[#667eea] to-[#764ba2] text-sm font-semibold text-white">
           <span>
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-plus-icon lucide-plus">
@@ -140,6 +144,10 @@
   </main>
 </body>
 
-<script src="./assets/js/calendar.js"></script>
+<script src="./assets/js/helpers.js"></script>
+<script src="./assets/js/renderCalendarDay.js"></script>
+<script src="./assets/js/renderCalendarWeek.js"></script>
+<script src="./assets/js/renderCalendarMonth.js"></script>
+<script src="./assets/js/switch_format.js"></script>
 
 </html>
